@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Neobrutalism Frontend — Plain HTML & CSS</title>
+    <style>
+        :root {
+            --bg: #f2f6f8;
+            --panel: #ffffff;
+            --accent: #111111;
+            --muted: #6b7280;
+            --shadow-color: rgba(0, 0, 0, 0.9);
+            --gap: 18px;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        /* Reset + layout */
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: #0b0b0b;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding: 32px;
+            line-height: 1.35;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Neobrutal components */
+        .block {
+            background: var(--panel);
+            border: 6px solid var(--accent);
+            border-radius: 18px;
+            padding: 22px;
+            box-shadow: 14px 14px 0 var(--shadow-color);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px
+        }
+
+        .brand {
+            display: flex;
+            gap: 14px;
+            align-items: center
+        }
+
+        .logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, #fff, #f3f5f8);
+            border: 6px solid var(--accent);
+            box-shadow: 8px 8px 0 var(--shadow-color);
+            font-weight: 800;
+            font-size: 20px
+        }
+
+        h1 {
+            font-size: 20px;
+            margin: 0
+        }
+
+        p.sub {
+            margin: 0;
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: var(--muted);
+            text-transform: uppercase
+        }
+
+        nav {
+            display: flex;
+            gap: 10px;
+            align-items: center
+        }
+
+        .btn {
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 4px solid var(--accent);
+            font-weight: 700;
+            background: transparent;
+            cursor: pointer;
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.85);
+        }
+
+        .btn.strong {
+            background: var(--accent);
+            color: #fff
+        }
+
+        .btn:active {
+            transform: translateY(0)
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 22px
+        }
+
+        .hero {
+            border-radius: 22px;
+            padding: 28px;
+            border: 6px solid var(--accent);
+            box-shadow: 18px 18px 0 var(--shadow-color);
+        }
+
+        .hero h2 {
+            font-size: 34px;
+            margin: 0 0 8px 0;
+            font-weight: 800
+        }
+
+        .hero p {
+            color: #374151;
+            margin: 0 0 16px 0
+        }
+
+        .controls {
+            display: flex;
+            gap: 12px
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 16px
+        }
+
+        .feature {
+            padding: 14px;
+            border: 4px solid var(--accent);
+            border-radius: 12px;
+            box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.85)
+        }
+
+        .feature h3 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 800
+        }
+
+        .feature p {
+            margin: 6px 0 0 0;
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 12px;
+            margin-top: 16px
+        }
+
+        .stat-block {
+            padding: 16px;
+            border-radius: 12px;
+            border: 4px solid var(--accent);
+            box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.85)
+        }
+
+        .stat {
+            font-size: 28px;
+            font-weight: 800
+        }
+
+        .stat small {
+            display: block;
+            font-size: 11px;
+            color: var(--muted);
+            text-transform: uppercase
+        }
+
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 14px
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 10px
+        }
+
+        .cam {
+            height: 86px;
+            border-radius: 8px;
+            border: 3px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eceff2
+        }
+
+        .quick {
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        .palette {
+            display: flex;
+            gap: 10px
+        }
+
+        .sw {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 4px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800
+        }
+
+        footer {
+            margin-top: 22px
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px;
+            border-radius: 14px;
+            border: 6px solid var(--accent);
+            box-shadow: 14px 14px 0 var(--shadow-color)
+        }
+
+        /* Responsive */
+        @media (max-width:1000px) {
+            main {
+                grid-template-columns: 1fr
+            }
+
+            .container {
+                padding: 0 14px
+            }
+        }
+
+        /* Micro animation (pure CSS) */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(8px);
+            animation: enter .45s ease forwards
+        }
+
+        @keyframes enter {
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">
+                <div class="logo">PS</div>
+                <div>
+                    <h1>Project Shakti</h1>
+                    <p class="sub">Community safety · neobrutal UI</p>
+                </div>
+            </div>
+
+            <nav>
+                <button class="btn">Overview</button>
+                <button class="btn">Features</button>
+                <button class="btn">Gallery</button>
+                <button class="btn strong">Deploy</button>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+                <article class="hero block fade-in">
+                    <h2>Community Safety Network</h2>
+                    <p>An array of lightweight drones and local volunteers monitoring public spaces in real-time. Fast
+                        alerts, privacy-first telemetry, and a community control panel.</p>
+
+                    <div class="controls">
+                        <button class="btn">Get Started</button>
+                        <button class="btn">How it works</button>
+                    </div>
+
+                    <div class="features">
+                        <div class="feature">
+                            <h3>Live Sweep</h3>
+                            <p>Autonomous area‑wide sweeps</p>
+                        </div>
+                        <div class="feature">
+                            <h3>Volunteer Hub</h3>
+                            <p>Local responder network</p>
+                        </div>
+                        <div class="feature">
+                            <h3>Privacy Mode</h3>
+                            <p>On‑device anonymization</p>
+                        </div>
+                    </div>
+
+                    <div class="stats">
+                        <div class="stat-block">
+                            <div class="stat">24</div>
+                            <small>Active Drones</small>
+                            <div style="margin-top:8px;font-size:13px;color:var(--muted)">System nominal · all networks
+                                green</div>
+                        </div>
+
+                        <div class="stat-block">
+                            <div class="stat">102</div>
+                            <small>Volunteers</small>
+                        </div>
+                    </div>
+
+                </article>
+            </section>
+
+            <aside>
+                <div class="block fade-in">
+                    <h4 style="margin:0 0 8px 0">Live Camera Grid</h4>
+                    <div class="grid">
+                        <div class="cam">Cam 1</div>
+                        <div class="cam">Cam 2</div>
+                        <div class="cam">Cam 3</div>
+                        <div class="cam">Cam 4</div>
+                    </div>
+                </div>
+
+                <div class="block fade-in quick">
+                    <h4 style="margin:0">Quick Actions</h4>
+                    <button class="btn">Request Drone Sweep</button>
+                    <button class="btn">Open Volunteer Map</button>
+                </div>
+
+                <div class="block fade-in">
+                    <h4 style="margin:0 0 8px 0">Theme</h4>
+                    <div class="palette">
+                        <div class="sw">A</div>
+                        <div class="sw">B</div>
+                        <div class="sw">C</div>
+                    </div>
+                </div>
+
+            </aside>
+        </main>
+
+        <footer>
+            <div class="footer-inner">
+                <div>
+                    <div style="font-weight:800">Project Shakti</div>
+                    <div style="font-size:12px;color:var(--muted)">Made with care · Neobrutal UI</div>
+                </div>
+                <div style="font-size:13px">v0.9 — © 2025</div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
